@@ -37,12 +37,6 @@ for(let i = 0; i < images.length; i++ ){
                     <h1>${imageElement.title}</h1>
                     <p> ${imageElement.text}</p>
                 </div>
-                <div class="arrow-right">
-                    <i class="fa-solid fa-arrow-right"></i>
-                </div>
-                <div class="arrow-left">
-                    <i class="fa-solid fa-arrow-left"></i>
-                </div>
             </div>
     `
     
@@ -52,6 +46,7 @@ for(let i = 0; i < images.length; i++ ){
 // start 
 const imageDiv = document.getElementsByClassName("image");
 let sliderPosition = 0;
+imageDiv[sliderPosition].classList.remove("hidden")
 imageDiv[sliderPosition].classList.add("active")
 
 // imageDiv[sliderPosition].classList.add("active")
@@ -59,18 +54,42 @@ const rightArrow = document.querySelector(".arrow-right");
 const leftArrow = document.querySelector(".arrow-left");
 
 rightArrow.addEventListener("click", function(){
-    if(sliderPosition < imageDiv.length){
+    imageDiv[sliderPosition].classList.remove("active");
+    if(sliderPosition < imageDiv.length - 1){
         
-        imageDiv[sliderPosition].classList.remove("active");
+       
         imageDiv[sliderPosition].classList.add("hidden");
 
-
         sliderPosition ++;
-
-
-        imageDiv[sliderPosition].classList.remove("hidden");
+        console.log(sliderPosition)
         imageDiv[sliderPosition].classList.add("active");
-        
-        
+
+    }else if (sliderPosition < (imageDiv.length) ){
+        imageDiv[sliderPosition].classList.remove("active");
+    
+
+        sliderPosition = 0
+    
+
+        imageDiv[sliderPosition].classList.add("active");
     }
-})
+});
+leftArrow.addEventListener("click", function () {
+  
+    if(sliderPosition > 0) {
+
+        imageDiv[sliderPosition].classList.remove("active");
+
+        sliderPosition--;
+
+        imageDiv[sliderPosition].classList.add("active");
+
+    } else if (sliderPosition === 0){
+        imageDiv[sliderPosition].classList.remove("active");
+
+        sliderPosition = 4;
+
+        imageDiv[sliderPosition].classList.add("active");
+
+    }
+});

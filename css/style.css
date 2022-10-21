@@ -23,6 +23,7 @@ img{
 .row-slider-img{
     width: 80%;
     margin: 5rem auto;
+    
 }
 
 .image{
@@ -44,14 +45,14 @@ h1{
 
 .arrow-right{
     width: 3rem;
-    height: 99%;
+    height: 100%;
     position: absolute;
     top: 0;
     right: 0;
     display: flex;
     justify-content: center;
     align-items: center;
-    color: white;
+    color: black;
    
 }
 .arrow-left{
@@ -63,7 +64,7 @@ h1{
     display: flex;
     justify-content: center;
     align-items: center;
-    color: white;
+    color: black;
    
 }
 .arrow-left:hover{
